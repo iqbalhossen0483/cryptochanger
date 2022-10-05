@@ -1,5 +1,8 @@
 import { useRouter } from "next/router";
 import { ChangeEvent, FormEvent, useState } from "react";
+import { signInWithPopup } from "firebase/auth";
+import { firebase } from "../../services/firebase";
+import useStates from "../../context/hooks/useStates";
 
 type Props = {
   title: userAction;
@@ -13,6 +16,8 @@ type Props = {
 const LoginRegistation = ({ title, action }: Props) => {
   const [error, setError] = useState<null | string>(null);
   const router = useRouter();
+  const { auth, googleProvider } = firebase();
+  const states = useStates();
   const [user, setUser] = useState({
     name: "",
     email: "",
@@ -38,6 +43,16 @@ const LoginRegistation = ({ title, action }: Props) => {
       router.push("/");
     } else {
       setError(res.error);
+    }
+  }
+
+  async function googleLogin() {
+    try {
+      const { user } = await signInWithPopup(auth, googleProvider);
+      states.setUser(user);
+      router.push("/");
+    } catch (error: any) {
+      setError(error.message);
     }
   }
 
@@ -104,11 +119,15 @@ const LoginRegistation = ({ title, action }: Props) => {
       <p className='text-xl font-medium'>----------- Or ----------</p>
 
       <div className='space-x-3 font-medium'>
-        <button className='bg-[#008B8B]' type='button'>
+        <button onClick={googleLogin} className='bg-[#008B8B]' type='button'>
           <i className='fa-brands fa-google'></i>
           <span>Google</span>
         </button>
-        <button className='bg-[#008B8B]' type='button'>
+        <button
+          onClick={() => alert("comming soon")}
+          className='bg-[#008B8B]'
+          type='button'
+        >
           <i className='fa-brands fa-facebook'></i>
           <span>Facebook</span>
         </button>
