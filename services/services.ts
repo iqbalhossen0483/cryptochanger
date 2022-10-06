@@ -111,7 +111,7 @@ const services = {
     {
       id: 13,
       name: "Bitcoin>Coinbase>",
-      img: "/bitcoin-coinbase>.png",
+      img: "/bitcoin-coinbase.png",
       sellRate: 105,
       type: "USD",
       buyRate: 118,

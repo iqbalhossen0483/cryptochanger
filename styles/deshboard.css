@@ -1,0 +1,85 @@
+@tailwind components;
+
+@layer components {
+  /* -----------------
+    parent container 
+  --------------------*/
+  .deshbaord-container {
+    @apply flex gap-5 bg-gray-50;
+  }
+
+  /* ----------------------
+    side menus component
+  ------------------------ */
+  .deshboard-menus-wrapper {
+    @apply bg-white border-r w-52;
+  }
+  .deshboard-menus {
+    @apply flex flex-col fixed;
+  }
+  .deshboard-menus h3 {
+    @apply uppercase font-semibold text-xl border-b-2 pl-4 pr-8 my-3 pb-1 text-[#008B8B]
+    cursor-pointer;
+  }
+  .deshboard-menus .item {
+    @apply py-1  text-lg pl-4 pr-8 hover:bg-slate-100 rounded-r-md 
+     ml-1 space-x-2 bg-white shadow-none text-gray-900 rounded-none text-left;
+  }
+  .deshboard-menus .item i {
+    @apply text-gray-900;
+  }
+
+  /* ------------------
+    icons component
+  ------------------- */
+  .icons-container {
+    @apply px-5 py-10 grid grid-cols-2 gap-10;
+  }
+  .icons-container .item,
+  .icons-container .social-icon {
+    @apply flex flex-col gap-4 bg-white border my-5 px-16 py-6 hover:shadow-md w-full;
+  }
+  .icons-container .social-icon {
+    @apply px-5 gap-3;
+  }
+  .icons-container .social-icon div i {
+    @apply text-4xl;
+  }
+  .icons-container .social-icon div {
+    @apply flex items-center gap-3;
+  }
+
+  /* -----------------
+    slider component
+  ------------------- */
+  .deshboard-slider-container {
+    @apply m-5 space-y-5;
+  }
+  .deshboard-slider-container .item h3 {
+    @apply col-span-2 text-center font-semibold text-xl;
+  }
+  .deshboard-slider-container .item {
+    @apply bg-white border rounded-md px-5 py-8 grid grid-cols-2 gap-5;
+  }
+
+  /*--------------------- 
+    exchange component
+  --------------------- */
+  .deshboard-exchange-container table {
+    @apply bg-white px-5 py-7 border my-5;
+  }
+  .deshboard-exchange-container table thead {
+    @apply border-b;
+  }
+  .deshboard-exchange-container table tbody tr {
+    @apply border-b hover:bg-gray-100;
+  }
+  .deshboard-exchange-container table td,
+  .deshboard-exchange-container table th {
+    @apply px-5 py-3 text-left;
+  }
+}
+
+.deshbaord-container {
+  min-height: calc(100vh - 48px);
+}

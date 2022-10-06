@@ -19,9 +19,14 @@ const Header = () => {
       alert("Something went wrong!");
     }
   }
+  function handleExchange() {
+    if (router.pathname !== "/") {
+      router.push("/");
+    } else {
+    }
+  }
 
   const menus = [
-    { name: "Exchange", icon: "fa-solid fa-rotate" },
     { name: "Affiliate", icon: "fa-solid fa-bullhorn" },
     { name: "Reviews", icon: "fa-solid fa-star" },
     { name: "Contact", icon: "fa-solid fa-phone" },
@@ -32,10 +37,16 @@ const Header = () => {
   return (
     <header>
       <div className='logo' onClick={() => router.push("/")}>
-        <Image width={200} height={32} src='/logo.png' alt='' />
+        {states.logo && (
+          <Image width={200} height={32} src={states.logo} alt='' />
+        )}
       </div>
       <nav>
-        {menus.slice(0, states.user ? 4 : 6).map((Item, i) => (
+        <button onClick={handleExchange}>
+          <i className='fa-solid fa-rotate text-xs'></i>
+          <span>Exchange</span>
+        </button>
+        {menus.slice(0, states.user ? 3 : 5).map((Item, i) => (
           <Link key={i} href={Item.name.replace(" ", "-").toLowerCase()}>
             <button>
               <i className={Item.icon + " text-xs"}></i>

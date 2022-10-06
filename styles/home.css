@@ -3,21 +3,24 @@
 @tailwind utilities;
 
 @layer base {
-  button {
+  button,
+  button[type="button"],
+  button[type="submit"] {
     @apply bg-[#008B8B] hover:bg-[#0d6363] text-white space-x-1 text-sm 
     lg:text-base shadow-md hover:shadow-lg shadow-[#008b8b1c] transition-all rounded 
-    px-2 py-1;
+    px-2 py-1 disabled:cursor-not-allowed;
   }
   input,
-  select {
+  select,
+  textarea {
     @apply border-[1.5px] outline-none px-5 py-3 w-full my-2 rounded
     hover:border-gray-300;
   }
-  form {
+  .form {
     @apply lg:w-2/5 md:w-2/4 bg-white rounded-md shadow-md mx-auto px-5 pt-5 
     pb-10 flex flex-col items-center gap-5;
   }
-  form h3 {
+  .form h3 {
     @apply font-semibold text-xl underline underline-offset-[6px];
   }
 }
@@ -28,7 +31,7 @@
   ------------ */
   header {
     @apply flex lg:gap-10 md:gap-5 justify-between lg:px-10 md:px-3 py-2 bg-[#b0e0e68b]
-    h-12;
+    h-12 sticky top-0 z-50;
   }
   nav {
     @apply lg:space-x-2 md:space-x-1;

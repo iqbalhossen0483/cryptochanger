@@ -1,5 +1,6 @@
 import React from "react";
-import "../styles/globals.css";
+import "../styles/home.css";
+import "../styles/deshboard.css";
 import "react-multi-carousel/lib/styles.css";
 import Header from "../components/Header/Header";
 import MetaTags from "../components/common/MetaTags";

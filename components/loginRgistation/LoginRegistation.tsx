@@ -59,7 +59,7 @@ const LoginRegistation = ({ title, action }: Props) => {
   return (
     <form
       onSubmit={(e) => handleSubmit(e)}
-      className={title === "Login" ? "mt-20" : "mt-7"}
+      className={`${title === "Login" ? "mt-20" : "mt-7"} form`}
     >
       <h3>
         {title === "Login" ? "Please Login Here" : "Please Create An Account"}
